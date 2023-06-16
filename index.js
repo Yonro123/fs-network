@@ -1,12 +1,22 @@
 import express from "express";
 import mongoose from "mongoose";
 import path from "path";
+import "dotenv/config";
+
+import viewsRouter from "./routes/views.js";
+import userRouter from "./routes/user.js";
 
 const PORT = 8080;
-const mongoURL =
-  "mongodb+srv://yonro:24081999Yonro@yonro.lab1pb4.mongodb.net/newsApp?retryWrites=true&w=majority";
+const mongoURL = process.env.MONGODB_URI || "";
 
 const app = express();
+
+mongoose
+  .connect(mongoURL)
+  .then(() => {
+    console.log("DB has been connected...");
+  })
+  .catch((err) => console.log(err));
 
 app.set("views", path.resolve("views"));
 app.set("view engine", "ejs");
@@ -15,12 +25,11 @@ app.use(express.static(path.resolve("public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose
-  .connect(mongoURL)
-  .then(() => {
-    console.log("DB has been connected...");
-  })
-  .catch((err) => console.log(err));
+// Странички
+app.use("/", viewsRouter);
+
+// API
+app.use("/api/user", userRouter);
 
 app.listen(8080, () => {
   console.log(`Server is running on port: ${PORT}...`);

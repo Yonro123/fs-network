@@ -1,0 +1,27 @@
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  border-radius: 0 0 15px 15px;
+}
+.container {
+  width: 100%;
+  max-width: 1641px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.header__navigation {
+}
+.header__link {
+}
+
+.contolPanel {
+}
