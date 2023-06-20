@@ -25,3 +25,17 @@
 
 .contolPanel {
 }
+
+.header__button {
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  transition: all 0.2s;
+}
+.header__button:hover {
+  transform: translateY(-2px);
+}
+.header__button:active {
+  transform: translateY(+2px);
+}

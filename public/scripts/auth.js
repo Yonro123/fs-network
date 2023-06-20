@@ -1,15 +1,13 @@
-import { now } from "mongoose";
-
 const endpoint = "http://localhost:8080/api";
 
-let user = null;
+let user = JSON.parse(localStorage.getItem("user") || null);
 
 const auth = async () => {
   try {
     const response = await fetch(`${endpoint}/user/auth`, {
       method: "POST",
       headers: {
-        "Contetn-type": "application/json",
+        "Content-type": "application/json",
       },
       body: JSON.stringify({
         email: "nurik@mail.ru",
@@ -28,13 +26,18 @@ const auth = async () => {
     localStorage.setItem("user", JSON.stringify(user));
 
     const event = new CustomEvent("userChanged", { detail: data });
-
     window.dispatchEvent(event);
   } catch (error) {
     console.log("error: ", error);
   }
 };
 
-const logOut = () => {};
+const logOut = () => {
+  user = null;
+  localStorage.removeItem("user");
+
+  const event = new CustomEvent("userChanged", { detail: user });
+  window.dispatchEvent(event);
+};
 
 export { user, auth, logOut };
