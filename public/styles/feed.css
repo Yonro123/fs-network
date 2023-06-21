@@ -1,0 +1,51 @@
+.posts__container {
+  display: grid;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.posts__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.post__card {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 25px;
+  background-color: #f4f7fc;
+  border-radius: 20px;
+}
+.card__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+}
+.cardHeaderImg {
+  width: 62px;
+  height: 62px;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.cardImg {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+.cardImg img {
+  object-fit: cover;
+}
+.cardContent {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 20% 1fr;
+  text-align: justify;
+}
