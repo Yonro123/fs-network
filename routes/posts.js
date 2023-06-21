@@ -5,7 +5,15 @@ import Posts from "../models/post.js";
 const router = Router();
 
 router.get("/", async (req, res) => {
-  const post = await Posts.find().populate("authorId");
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 3;
+
+  const offset = (page - 1) * limit;
+
+  const post = await Posts.find()
+    .limit(limit)
+    .skip(offset)
+    .populate("authorId");
 
   res.status(200).json(post);
 });
