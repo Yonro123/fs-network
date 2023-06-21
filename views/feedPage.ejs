@@ -6,12 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Feed</title>
   <%- include("partials/head.ejs") %>
+    <link rel="stylesheet" href="/styles/feed.css">
 </head>
 
 <body>
   <%- include("partials/header.ejs") %>
+    <div class="posts">
+      <div class="posts__container">
+        <div class="posts__cards"></div>
+      </div>
+      <div class="posts__pagination">
+        <button class="prev">Prev</button>
+        <button class="next">Next</button>
+      </div>
+    </div>
+    </div>
 
     <%- include("partials/scripts.ejs") %>
+      <script src="/scripts/feed.js"></script>
 </body>
 
 </html>

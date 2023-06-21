@@ -31,7 +31,7 @@ app.use("/", viewsRouter);
 
 // API
 app.use("/api/user", userRouter);
-app.use("/api/post", postsRouter);
+app.use("/api/posts", postsRouter);
 
 app.listen(8080, () => {
   console.log(`Server is running on port: ${PORT}...`);
